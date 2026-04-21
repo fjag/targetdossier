@@ -23,12 +23,18 @@ JSON profile plus a human-readable markdown report.
 claude mcp add --transport http paperclip https://paperclip.gxl.ai/mcp
 ```
 
-**2. Verify it is connected:**
+**2. Authenticate:**
+
+Start Claude, enter `/mcp`, and select **Authenticate** under the paperclip server.
+
+**3. Verify it is connected:**
 
 ```bash
 claude mcp list
 # paperclip: https://paperclip.gxl.ai/mcp (HTTP) - connected
 ```
+
+For more details see [paperclip.gxl.ai](https://paperclip.gxl.ai).
 
 ---
 
