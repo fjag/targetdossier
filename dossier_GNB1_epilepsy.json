@@ -1,0 +1,148 @@
+{
+  "target": "GNB1",
+  "disease": "epilepsy",
+  "generated": "2026-04-21T00:00:00Z",
+  "parameters": {
+    "target": "GNB1",
+    "aliases": [],
+    "disease": "epilepsy",
+    "year_from": 2021,
+    "year_to": 2026,
+    "top_k": 2,
+    "retrieval": "SQL primary + semantic fallback"
+  },
+  "run_summary": {
+    "papers_retrieved": 5,
+    "papers_processed": 2,
+    "records_verified": 2,
+    "records_dropped": 3,
+    "drop_log": [
+      {
+        "reason": "SKIP",
+        "id": "med_42fbd3cb7e35",
+        "note": "no GNB1 mention in content — semantic false-positive (TLE surgery outcomes paper)"
+      },
+      {
+        "reason": "YEAR_FILTER",
+        "doi": "10.1101/697235",
+        "note": "pub_date July_2019, outside default 2021-2026 window"
+      },
+      {
+        "reason": "YEAR_FILTER",
+        "doi": "10.1101/2020.07.21.209163",
+        "note": "pub_date July_2020, outside default 2021-2026 window"
+      }
+    ]
+  },
+  "evidence_records": [
+    {
+      "paper": {
+        "doi": "10.1101/2022.04.28.489780",
+        "pmid": null,
+        "title": "Sensory regulation of absence seizures in a mouse model of Gnb1 encephalopathy",
+        "year": 2022,
+        "venue": "bioRxiv",
+        "authors_first_last": "Sasa Teng, Yueqing Peng"
+      },
+      "evidence_class": "functional_perturbation",
+      "system": {
+        "species": "mouse",
+        "tissue_or_cell": "thalamocortical circuits (reticular thalamic nucleus, thalamocortical neurons, VPM)",
+        "disease_context": "absence epilepsy / GNB1 encephalopathy (Gnb1 K78R/+ knock-in model)"
+      },
+      "claim": {
+        "text": "In Gnb1 K78R/+ mutant mice, sensory input significantly increases spike-wave discharge (SWD) frequency and duration, and chemogenetic activation of thalamocortical (TC) cells further enhances SWD count. TC cells are activated prior to SWD onset then suppressed during SWD, while reticular thalamic cells show the opposite pattern, establishing a thalamocortical mechanism by which sensory inputs trigger absence seizures in GNB1 encephalopathy.",
+        "direction_of_effect": "positive",
+        "effect_size": "Chemogenetic TC activation significantly increased SWD number (N=6, P<0.05); sensory stimulation significantly increased SWD count and duration (N=10, P<0.01); 83.46% ± 0.86% of SWD occurred during wakefulness",
+        "uncertainty": "medium — mouse model (K78R variant only); direct translational relevance to human epilepsy not established",
+        "sample_size": "N=10 (EEG/sensory stimulation); N=4 animals (TC fiber photometry); N=5 animals (RT fiber photometry); N=6 animals (chemogenetics)"
+      },
+      "study_design": {
+        "type": "in vivo mouse model — CRISPR K78R knock-in, EEG/EMG, fiber photometry, chemogenetic manipulation",
+        "independent_cohort": false,
+        "replication_status": "SWD wake-prevalence replicated in independent mouse models (Stxbp1, Gria4) and GAERS rats"
+      },
+      "quality_flags": {
+        "preregistered": null,
+        "blinded": null,
+        "code_available": null,
+        "data_available": null,
+        "retraction_or_concern": null
+      },
+      "supporting_quote": "Furthermore, chemogenetic activation of TC cells leads to the enhancement of SWD in Gnb1 mice."
+    },
+    {
+      "paper": {
+        "doi": "10.3390/medicina60040589",
+        "pmid": "38674235",
+        "pmc_id": "PMC11051738",
+        "title": "GNB1 Encephalopathy: Clinical Case Report and Literature Review",
+        "year": 2024,
+        "venue": "Medicina",
+        "authors_first_last": "Matas Nasvytis, Giedrė Jurkevičienė"
+      },
+      "evidence_class": "clinical_evidence",
+      "system": {
+        "species": "human",
+        "tissue_or_cell": "brain (globus pallidus, dentate nucleus; neuronal Gβγ–GIRK signalling)",
+        "disease_context": "GNB1 encephalopathy with epilepsy as a variable clinical feature"
+      },
+      "claim": {
+        "text": "GNB1 encephalopathy, caused by pathogenic GNB1 variants, manifests with developmental delay, dystonia, and epilepsy in a significant fraction of the ~68 documented cases. This first Lithuanian case presents an inherited Asp76Asn variant (autosomal dominant) with mild phenotype and no epileptiform EEG, illustrating variable epileptic expressivity even for mutations in the Gβγ–Gα interaction hotspot (Asp76–Ile80). Treatment remains symptomatic; ethosuximide and DBS are highlighted as candidates.",
+        "direction_of_effect": "positive",
+        "effect_size": "Epilepsy present as a feature in ~68 documented worldwide cases; precise prevalence fraction not quantified in this paper",
+        "uncertainty": "high — single case report plus narrative literature review; total worldwide cohort is small (~68 cases); no standardised treatment guidelines; this patient had no epileptiform EEG",
+        "sample_size": "1 case + narrative review of ~68 worldwide cases"
+      },
+      "study_design": {
+        "type": "case report with literature review",
+        "independent_cohort": true,
+        "replication_status": "Consistent with prior case series (Petrovski 2016, Hemati 2018, Revah-Politi 2021)"
+      },
+      "quality_flags": {
+        "preregistered": false,
+        "blinded": false,
+        "code_available": false,
+        "data_available": false,
+        "retraction_or_concern": null
+      },
+      "supporting_quote": "GNB1 encephalopathy is a rare genetic disease caused by pathogenic variants in the G Protein Subunit Beta 1 (GNB1) gene, with only around 68 cases documented worldwide."
+    }
+  ],
+  "evidence_profile": {
+    "functional_perturbation": {
+      "n_papers": 1,
+      "support_count": 1,
+      "contradict_count": 0,
+      "direction_consistency": 1.0,
+      "human_fraction": 0.0
+    },
+    "clinical_evidence": {
+      "n_papers": 1,
+      "support_count": 1,
+      "contradict_count": 0,
+      "direction_consistency": 1.0,
+      "human_fraction": 1.0
+    }
+  },
+  "triangulation": {
+    "classes_with_support": ["functional_perturbation", "clinical_evidence"],
+    "classes_absent": [
+      "human_genetics",
+      "expression_localisation",
+      "pharmacology_tools",
+      "safety_essentiality",
+      "structure_druggability",
+      "mechanism_pathway"
+    ],
+    "converging_direction": "positive"
+  },
+  "gaps_and_next_actions": [
+    "No human_genetics evidence retrieved — search ClinVar/OMIM or expand year window to include Petrovski et al. (2016) and Hemati et al. (2018) de novo mutation papers.",
+    "No expression_localisation evidence retrieved — check GTEx for GNB1 expression across brain regions relevant to epilepsy (thalamus, cortex).",
+    "No pharmacology_tools evidence retrieved — ethosuximide (GIRK blocker) cited in both papers as a candidate; search Paperclip for dedicated GNB1/GIRK pharmacology studies.",
+    "No safety_essentiality evidence retrieved — check gnomAD for GNB1 constraint scores (pLI/LOEUF) to assess essentiality.",
+    "No structure_druggability evidence retrieved — Gβ1 structural data exists; search Paperclip for cryo-EM or crystallography studies of Gβ1–Gα or Gβ1–GIRK complexes.",
+    "No mechanism_pathway evidence retrieved — Gβγ regulation of GIRK channels is the central proposed mechanism; search for GIRK/Gβγ signalling papers with --aliases 'Gbeta1,GIRK,Gβγ'."
+  ]
+}
