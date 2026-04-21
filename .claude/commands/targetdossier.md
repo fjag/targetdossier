@@ -1,5 +1,5 @@
 ---
-description: TargetDossier — build a structured literature evidence profile for a therapy target. Usage: /targetdossier --target SYMBOL [--disease LABEL] [--top-k N] [--from YEAR] [--to YEAR] [--aliases A,B,C]
+description: "TargetDossier — build a structured literature evidence profile for a therapy target. Usage: /targetdossier --target SYMBOL [--disease LABEL] [--top-k N] [--from YEAR] [--to YEAR] [--aliases A,B,C]"
 model: claude-sonnet-4-6
 tools: mcp__paperclip__paperclip
 ---
