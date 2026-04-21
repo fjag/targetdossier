@@ -40,17 +40,6 @@ claude mcp add --transport http paperclip https://paperclip.gxl.ai/mcp
 
 Verify with `claude mcp list` before the first run.
 
-If the server shows `Needs authentication`, the OAuth session has expired.
-Re-authenticate with:
-
-```
-/login
-```
-
-The coordinator will prompt with an authorization URL if Paperclip tools are
-unavailable at preflight. Do not attempt to re-add the server — it is already
-registered; re-authentication restores the session.
-
 ## Security notes
 
 - **Input validation.** The coordinator validates `--target`, `--disease`,

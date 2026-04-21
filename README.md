@@ -30,12 +30,6 @@ claude mcp list
 # paperclip: https://paperclip.gxl.ai/mcp (HTTP) - connected
 ```
 
-**3. Authenticate** (if the status shows `Needs authentication`):
-
-Run `/login` inside a Claude Code session. You will be prompted with an
-authorization URL. Complete the flow in your browser. Do not re-add the server —
-it is already registered; re-authentication restores the session.
-
 ---
 
 ## Usage
