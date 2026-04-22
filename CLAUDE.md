@@ -67,3 +67,7 @@ Verify with `claude mcp list` before the first run.
   Move them after the run if needed.
 - **Paperclip indexes 8M+ papers but is not exhaustive.** Absence of a record
   in the output does not mean absence of evidence in the literature.
+- **One evidence class per paper.** The extractor assigns the single best-fitting
+  class based on the paper's primary contribution. Findings in secondary classes
+  are not captured — a paper spanning functional perturbation and mechanism
+  pathway will only contribute one record.

@@ -146,6 +146,10 @@ no per-run charge.
   that cite them.
 - **Output files land in the working directory.** Move them after the run if
   needed; there is no `--output-dir` flag.
+- **One evidence class per paper.** Each paper is assigned a single best-fitting
+  evidence class based on its primary contribution. If a paper spans multiple
+  classes, only the most central one is captured — findings in secondary classes
+  are not extracted.
 - **Positive-result bias.** Published literature over-represents positive
   findings. Each paper gets a `direction_of_effect` field. A null or
   failed-replication result is still evidence — keeping these records prevents
