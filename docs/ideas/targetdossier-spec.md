@@ -190,18 +190,3 @@ Two files written to the working directory:
 - `evidence_{target}_{disease}.json` — full aggregation + all verified records
 - `evidence_{target}_{disease}.md` — human-readable report (also printed to stdout)
 
----
-
-## 8. Known limitations
-
-- Paperclip is paper-centric. Database-native evidence (Open Targets, gnomAD,
-  DepMap, GTEx, ChEMBL, PDB, ClinicalTrials.gov) is represented only via papers
-  that cite it.
-- Alias and species ambiguity are the main recall failures. Expand synonyms
-  aggressively.
-- Positive-result bias is material. Track `direction_of_effect: none` and
-  `failed_to_replicate` explicitly.
-- A retrieved paper is not a validated claim. The supporting quote is the
-  audit trail; if it cannot be produced, the record is dropped.
-- `search --since` / `--year` date filters are soft hints, not hard cutoffs
-  (observed in validation). Use SQL `pub_date ILIKE '%YYYY%'` for hard filtering.
