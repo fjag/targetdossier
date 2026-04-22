@@ -147,8 +147,9 @@ no per-run charge.
 - **Output files land in the working directory.** Move them after the run if
   needed; there is no `--output-dir` flag.
 - **Positive-result bias.** Published literature over-represents positive
-  findings. Track `direction_of_effect: none` and `failed_to_replicate`
-  records explicitly rather than discarding them.
+  findings. Each paper gets a `direction_of_effect` field. A null or
+  failed-replication result is still evidence — keeping these records prevents
+  the aggregation from over-counting support for a target.
 
 See `CLAUDE.md` for full architectural constraints and `docs/ideas/targetdossier-spec.md`
 for the complete specification.
