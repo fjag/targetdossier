@@ -1,4 +1,4 @@
-# Target Evidence — Specification
+# TargetDossier — Specification
 
 Turn a free-text therapy target and optional disease into a structured,
 per-evidence-class evidence profile suitable for pipeline decision-making,
@@ -60,8 +60,8 @@ with DOIs populated. Semantic search does not respect gene symbol specificity
 for niche targets, but remains useful as a fallback for aliases and body-text-only mentions.
 
 ### Total cap
-`min(SQL + search results after dedup, top_k * 4)`.
-Default top_k=5 → max 20 papers per run.
+`min(SQL + search results after dedup, top_k * 8)`.
+Default top_k=5 → max 40 papers per run.
 
 ---
 
@@ -75,9 +75,9 @@ For each retained paper:
 4. Read Abstract + Results + Methods (or equivalent). Use `head -80` on
    sections >300 lines.
 
-### 3b. Extract (paper-extractor subagent)
-Coordinator passes pre-fetched text to the `paper-extractor` subagent.
-The subagent has no tool access and reasons only over provided text.
+### 3b. Extract (coordinator, inline)
+The coordinator applies the extraction rules from `.claude/agents/paper-extractor.md`
+directly — no subagent is spawned. All reasoning is over the text fetched in 3a only.
 
 ### 3c. Quote verification (coordinator)
 `supporting_quote` must appear verbatim in the text fetched in 3a.
@@ -124,8 +124,7 @@ Neither type enters the aggregation.
     "data_available": "boolean | null",
     "retraction_or_concern": "boolean | null"
   },
-  "supporting_quote": "verbatim sentence from paper text",
-  "record_id": "uuid"
+  "supporting_quote": "verbatim sentence from paper text"
 }
 ```
 
@@ -170,16 +169,8 @@ agreeing with the modal direction.
 
 ## 6. Evidence class definitions
 
-| Class | Signal |
-|---|---|
-| `human_genetics` | GWAS, rare variant, eQTL, Mendelian randomisation, loss-of-function in humans |
-| `functional_perturbation` | CRISPR, knockout, knockdown, overexpression, RNAi, rescue |
-| `expression_localisation` | RNA/protein expression, single-cell, tissue specificity, spatial |
-| `pharmacology_tools` | inhibitors, agonists, antagonists, chemical probes, selectivity |
-| `clinical_evidence` | clinical trials, patient cohorts, biomarkers, stratification |
-| `safety_essentiality` | adverse effects, essentiality screens, PheWAS, on-target toxicity |
-| `structure_druggability` | crystal structure, cryo-EM, binding site, allosteric site |
-| `mechanism_pathway` | pathway, interactors, signalling, mechanistic studies |
+See `.claude/agents/paper-extractor.md` for the authoritative class definitions
+and extraction rules applied during each run.
 
 ---
 
@@ -187,6 +178,6 @@ agreeing with the modal direction.
 
 Two files written to the working directory:
 
-- `evidence_{target}_{disease}.json` — full aggregation + all verified records
-- `evidence_{target}_{disease}.md` — human-readable report (also printed to stdout)
+- `dossier_{target}_{disease}.json` — full aggregation + all verified records
+- `dossier_{target}_{disease}.md` — human-readable report (also printed to stdout)
 
