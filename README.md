@@ -32,7 +32,7 @@ cd targetdossier
 
 This gives you the slash command (`.claude/commands/targetdossier.md`) and the
 extraction rules (`.claude/agents/paper-extractor.md`) that Claude Code needs
-to run `/targetdossier`. Open the folder in Claude Code before continuing.
+to run `/targetdossier`.
 
 **2. Add the Paperclip MCP server (one-time):**
 
