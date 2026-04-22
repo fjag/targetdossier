@@ -23,10 +23,9 @@ JSON profile plus a human-readable markdown report.
 
 ## Setup
 
-**1. Clone this repository into your project:**
+**1. Clone this repository using your preferred method, then navigate into it:**
 
 ```bash
-git clone https://github.com/fjag/targetdossier.git
 cd targetdossier
 ```
 
