@@ -51,11 +51,13 @@ only. Results merged and deduped into the master list.
 
 ### Why SQL-primary, not search-primary
 
-Validation probe on GNB1 (2026-04-21): `search "GNB1 CRISPR knockout"` returned
-zero GNB1-specific papers — all three results were generic CRISPR methodology
-papers. `sql WHERE abstract_text ILIKE '%GNB1%'` returned 5 genuinely relevant
-papers with DOIs populated. Semantic search does not respect gene symbol
-specificity for niche targets.
+SQL gives precise gene-symbol matching across abstracts, which semantic search
+can miss for niche or rare targets. As an example, a validation probe on GNB1
+(2026-04-21): `search "GNB1 CRISPR knockout"` returned zero GNB1-specific
+papers — all three results were generic CRISPR methodology papers. By contrast,
+`sql WHERE abstract_text ILIKE '%GNB1%'` returned 5 genuinely relevant papers
+with DOIs populated. Semantic search does not respect gene symbol specificity
+for niche targets, but remains useful as a fallback for aliases and body-text-only mentions.
 
 ### Total cap
 `min(SQL + search results after dedup, top_k * 4)`.
