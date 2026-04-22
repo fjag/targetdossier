@@ -2,10 +2,9 @@
 
 ![Built with Claude Code](https://img.shields.io/badge/built_with-Claude_Code-blueviolet?logo=anthropic&logoColor=white)
 ![MCP](https://img.shields.io/badge/MCP-Model_Context_Protocol-green)
-![Powered by Paperclip](https://img.shields.io/badge/powered_by-paperclip.gxl.ai-blue)
-![License](https://img.shields.io/github/license/fjag/targetdossier)
-![Status](https://img.shields.io/badge/status-experimental-red)
+![License](https://img.shields.io/badge/license-MIT-green)
 ![Agentic](https://img.shields.io/badge/workflow-agentic-orange)
+![Powered by Paperclip](https://img.shields.io/badge/powered_by-paperclip.gxl.ai-blue)
 
 A Claude Code slash command that builds a structured literature evidence profile
 for a therapy target. Given a gene symbol and optional disease, it queries the
