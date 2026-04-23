@@ -53,10 +53,9 @@ Verify with `claude mcp list` before the first run.
 
 ## Known limitations
 
-- **Date filtering is approximate.** The `pub_date` column stores values like
-  `September_2025`, not ISO dates. SQL date comparisons fail silently.
-  Use `pub_date ILIKE '%2025%'` for year filtering. The `--year` flag on
-  `search` is a ranking hint, not a hard cutoff.
+- **Date filtering uses standard SQL.** The `pub_date` column is a proper `date`
+  type — use `pub_date >= '2021-01-01' AND pub_date <= '2025-12-31'` for year
+  range filtering. The `--year` flag on `search` is a ranking hint, not a hard cutoff.
 - **`--top-k` is a per-class target, not a total cap.** The coordinator pulls
   up to `top_k × 8` papers, distributes them across classes (capped at
   `top_k` per class), and processes at most `top_k × 8` total. A run with

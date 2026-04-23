@@ -38,6 +38,12 @@ ORDER BY pub_date DESC
 LIMIT {top_k * 8}
 ```
 
+Add year filtering when `--from` / `--to` are supplied:
+```sql
+AND pub_date >= '{from}-01-01' AND pub_date <= '{to}-12-31'
+```
+`pub_date` is a proper `date` column — standard comparison operators work correctly.
+
 Run for main symbol and each alias. Dedup by DOI across all results.
 
 ### Fallback — semantic search

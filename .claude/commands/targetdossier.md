@@ -72,11 +72,9 @@ LIMIT {top_k * 8}
 
 **Year filtering:** if `--from` / `--to` are supplied, append:
 ```sql
-AND pub_date ILIKE '%{from}%' OR pub_date ILIKE '%{from+1}%' ...
+AND pub_date >= '{from}-01-01' AND pub_date <= '{to}-12-31'
 ```
-or filter post-retrieval by checking `pub_date` contains the target year string
-(e.g. `2024`, `2025`). Do NOT use SQL date comparison operators — the
-`pub_date` column stores strings like `September_2025`, not ISO dates.
+`pub_date` is a proper `date` column — standard comparison operators work correctly.
 
 ### 2b. Semantic search fallback
 ```
